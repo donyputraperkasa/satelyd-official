@@ -1,6 +1,6 @@
 import { Terminal, Mail } from 'lucide-react'
 import { FaInstagram, FaTiktok, FaLinkedinIn } from 'react-icons/fa'
-import { SOCIAL_LINKS } from '../data'
+import { medsos } from '../data'
 
 export function Footer() {
   return (
@@ -9,7 +9,7 @@ export function Footer() {
       <div className="footer-social-row" aria-label="Media Sosial & Kontak">
         {/* Instagram */}
         <a
-          href={SOCIAL_LINKS.instagram}
+          href={medsos.instagram}
           target="_blank"
           rel="noopener noreferrer"
           className="footer-social-btn"
@@ -21,7 +21,7 @@ export function Footer() {
 
         {/* TikTok */}
         <a
-          href={SOCIAL_LINKS.tiktok}
+          href={medsos.tiktok}
           target="_blank"
           rel="noopener noreferrer"
           className="footer-social-btn"
@@ -33,7 +33,7 @@ export function Footer() {
 
         {/* LinkedIn */}
         <a
-          href={SOCIAL_LINKS.linkedin}
+          href={medsos.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="footer-social-btn"
@@ -45,7 +45,7 @@ export function Footer() {
 
         {/* Email */}
         <a
-          href={SOCIAL_LINKS.email}
+          href={medsos.email}
           className="footer-social-btn"
           title="Kirim Email"
           aria-label="Email"
@@ -70,9 +70,7 @@ export function Footer() {
 
       {/* Tagline & Copyright */}
       <div className="footer-centered-sub">
-        <span className="footer-tagline">© {new Date().getFullYear()} satelyd.id</span>
-        <span className="footer-sub-bullet">•</span>
-        <span className="footer-tagline">explore . learn . build</span>
+        <span>mathematics and software engineering</span>
       </div>
     </footer>
   )

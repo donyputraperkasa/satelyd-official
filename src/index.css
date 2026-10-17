@@ -3,26 +3,26 @@
   --bg-deep: #080C14;
   --bg-space: #0B0F19;
   --bg-space-secondary: #111827;
-  
+
   /* Glass & Borders */
   --glass-bg: rgba(22, 30, 46, 0.65);
   --glass-border: rgba(148, 163, 184, 0.14);
   --glass-hover-bg: rgba(30, 41, 59, 0.85);
   --glass-hover-border: rgba(56, 189, 248, 0.45);
-  
+
   /* Text */
   --text-main: #F8FAFC;
   --text-heading: #FFFFFF;
   --text-muted: #94A3B8;
   --text-dim: #64748B;
-  
+
   /* Space Glow Accents */
   --accent-orbit-gold: #F59E0B;
   --accent-cyan: #38BDF8;
   --accent-cyan-glow: rgba(56, 189, 248, 0.25);
   --accent-purple-glow: rgba(168, 85, 247, 0.2);
   --accent-gold-glow: rgba(245, 158, 11, 0.25);
-  
+
   /* Typography */
   --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
@@ -34,8 +34,9 @@
   padding: 0;
 }
 
-html, body {
-  min-height: 100vh;
+html,
+body {
+  min-height: 100%;
   width: 100%;
   background-color: var(--bg-deep);
   color: var(--text-main);
@@ -46,7 +47,7 @@ html, body {
 }
 
 #root {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;

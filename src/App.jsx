@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { BookOpen, Code2, UserRound, Gamepad2 } from 'lucide-react'
+import { BookOpen, Code2, UserRound, Gamepad2, Star } from 'lucide-react'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Card } from './components/Card'
 import { Modal } from './components/Modal'
-import { MODAL_DATA } from './data'
+import { jasa } from './data'
 import './App.css'
 
 function App() {
@@ -27,13 +27,13 @@ function App() {
       <main className="main-content">
         <h1 className="page-title">welcome to satelyd.id</h1>
         <p className="page-subtitle">
-          Wadah karya digital dan media edukasi interaktif
+          Selamat datang di satelyd.id — platform media pembelajaran interaktif, bimbingan les matematika, dan pembuatan website.
         </p>
 
         <section className="cards-grid" aria-label="Menu Utama">
           {/* Card 1: About Me -> Navigates to CV / Portfolio */}
           <Card
-            title="cv dan portofolio"
+            title="tentang aku"
             href="https://portofolio-ku-gold.vercel.app/"
             isExternal={true}
             icon={UserRound}
@@ -64,7 +64,15 @@ function App() {
           />
         </section>
 
-        <span className="subtitle-tagline">learn • play • build</span>
+        {/* Tagline: Copyright & Rating Inline */}
+        <div className="footer-tagline">
+          <span className="footer-rating-group">
+            <Star size={13} className="rating-star-inline-icon" />
+            <span>4.8</span>
+          </span>
+          <span className="footer-tagline-separator">|</span>
+          <span className="footer-tagline-copy">© {new Date().getFullYear()} satelyd.id</span>
+        </div>
       </main>
 
       {/* Footer Section */}
@@ -74,7 +82,7 @@ function App() {
       <Modal
         isOpen={Boolean(activeModalKey)}
         onClose={handleCloseModal}
-        data={activeModalKey ? MODAL_DATA[activeModalKey] : null}
+        data={activeModalKey ? jasa[activeModalKey] : null}
       />
     </div>
   )

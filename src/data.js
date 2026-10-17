@@ -1,6 +1,6 @@
 import { BookOpen, Code2 } from 'lucide-react'
 
-export const MODAL_DATA = {
+export const jasa = {
   math_tutoring: {
     title: 'Les Matematika',
     icon: BookOpen,
@@ -21,9 +21,9 @@ export const MODAL_DATA = {
   },
 }
 
-export const SOCIAL_LINKS = {
-  instagram: 'https://instagram.com/',
-  tiktok: 'https://tiktok.com/',
-  linkedin: 'https://linkedin.com/',
-  email: 'mailto:perkasaputra38@gmail.com',
+export const medsos = {
+  instagram: 'https://www.instagram.com/donyputraperkasa/',
+  tiktok: 'https://www.tiktok.com/@donyputraperkasa',
+  linkedin: 'https://www.linkedin.com/in/dony-putra-perkasa-49ba87233/?isSelfProfile=true',
+  email: 'mailto:donyputraperkasa@gmail.com',
 }
