@@ -1,19 +1,35 @@
-import { ExternalLink, Sparkles } from 'lucide-react'
+import { ExternalLink, Sparkles, ChevronRight } from 'lucide-react'
 
-export function Card({ title, href, onClick, badge, isExternal, icon: IconComponent }) {
+export function Card({
+  title,
+  href,
+  onClick,
+  badge,
+  isExternal,
+  icon: IconComponent,
+  isHighlight = false,
+  variant = 'default',
+  className = ''
+}) {
+  const cardClasses = [
+    'sketch-card',
+    isHighlight ? 'card-highlight' : '',
+    variant ? `card-${variant}` : '',
+    className
+  ].filter(Boolean).join(' ')
+
   const content = (
     <>
       {IconComponent && (
         <div className="card-icon-wrap">
-          <IconComponent size={22} />
+          <IconComponent size={isHighlight ? 36 : 24} />
         </div>
       )}
-      <span className="card-text">{title}</span>
-      {badge && (
-        <span className="card-action-badge">
-          {isExternal ? <ExternalLink size={12} /> : <Sparkles size={12} />}
-          {badge}
-        </span>
+      <div className="card-info">
+        <span className="card-text">{title}</span>
+      </div>
+      {variant === 'side' && (
+        <ChevronRight size={20} className="card-arrow-icon" />
       )}
     </>
   )
@@ -24,7 +40,7 @@ export function Card({ title, href, onClick, badge, isExternal, icon: IconCompon
         href={href}
         target={isExternal ? '_blank' : '_self'}
         rel={isExternal ? 'noopener noreferrer' : undefined}
-        className="sketch-card"
+        className={cardClasses}
       >
         {content}
       </a>
@@ -35,9 +51,10 @@ export function Card({ title, href, onClick, badge, isExternal, icon: IconCompon
     <button
       type="button"
       onClick={onClick}
-      className="sketch-card"
+      className={cardClasses}
     >
       {content}
     </button>
   )
 }
+

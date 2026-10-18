@@ -30,53 +30,62 @@ function App() {
           Selamat datang di satelyd.id — platform media pembelajaran interaktif, bimbingan les matematika, dan pembuatan website.
         </p>
 
-        <section className="cards-grid" aria-label="Menu Utama">
-          {/* Card 1: About Me -> Navigates to CV / Portfolio */}
-          <Card
-            title="tentang aku"
-            href="https://portofolio-ku-gold.vercel.app/"
-            isExternal={true}
-            icon={UserRound}
-          />
+        <section className="cards-layout" aria-label="Menu Utama">
+          {/* Div Sendiri: Highlight Game Kelas */}
+          <div className="game-highlight-container">
+            <Card
+              title="game kelas"
+              href="https://satelyd-fe.vercel.app/"
+              isExternal={true}
+              icon={Gamepad2}
+              isHighlight={true}
+            />
+          </div>
 
-          {/* Card 2: Media Pembelajaran -> Navigates to satelyd-fe web */}
-          <Card
-            title="game kelas"
-            href="https://satelyd-fe.vercel.app/"
-            isExternal={true}
-            icon={Gamepad2}
-          />
+          {/* Div Flex Kebawah: Tentang Saya, Les Matematika, dan Jasa Bikin Website */}
+          <div className="side-cards-container">
+            <Card
+              title="tentang saya"
+              onClick={() => handleOpenModal('about_me')}
+              isExternal={false}
+              icon={UserRound}
+              variant="side"
+            />
 
-          {/* Card 3: Jasa Les Matematika -> Opens Modal */}
-          <Card
-            title="jasa les matematika"
-            onClick={() => handleOpenModal('math_tutoring')}
-            isExternal={false}
-            icon={BookOpen}
-          />
+            <Card
+              title="jasa les matematika"
+              onClick={() => handleOpenModal('math_tutoring')}
+              isExternal={false}
+              icon={BookOpen}
+              variant="side"
+            />
 
-          {/* Card 4: Jasa Bikin Website -> Opens Modal */}
-          <Card
-            title="jasa bikin website"
-            onClick={() => handleOpenModal('web_dev')}
-            isExternal={false}
-            icon={Code2}
-          />
+            <Card
+              title="jasa bikin website"
+              onClick={() => handleOpenModal('web_dev')}
+              isExternal={false}
+              icon={Code2}
+              variant="side"
+            />
+          </div>
         </section>
-
-        {/* Tagline: Copyright & Rating Inline */}
-        <div className="footer-tagline">
-          <span className="footer-rating-group">
-            <Star size={13} className="rating-star-inline-icon" />
-            <span>4.8</span>
-          </span>
-          <span className="footer-tagline-separator">|</span>
-          <span className="footer-tagline-copy">© {new Date().getFullYear()} satelyd.id</span>
-        </div>
       </main>
 
-      {/* Footer Section */}
-      <Footer />
+      {/* Bottom Section: Rating Tagline & Footer */}
+      <div className="bottom-section">
+        <div className="footer-tagline-container">
+          <div className="footer-tagline">
+            <span className="footer-rating-group">
+              <Star size={13} className="rating-star-inline-icon" />
+              <span>4.8</span>
+            </span>
+            <span className="footer-tagline-separator">|</span>
+            <span className="footer-tagline-copy">© {new Date().getFullYear()} satelyd.id</span>
+          </div>
+        </div>
+
+        <Footer />
+      </div>
 
       {/* Service Detail Modal */}
       <Modal

@@ -1,6 +1,19 @@
-import { BookOpen, Code2 } from 'lucide-react'
+import { BookOpen, Code2, UserRound } from 'lucide-react'
 
 export const jasa = {
+  about_me: {
+    title: 'Tentang Saya',
+    icon: UserRound,
+    type: 'profile',
+    infoList: [
+      { label: 'Nama Lengkap', value: 'Dony Putra Perkasa' },
+      { label: 'Tempat Lahir', value: 'Yogyakarta, Indonesia' },
+      { label: 'Pendidikan', value: 'Matematika & Software Engineering' },
+      { label: 'Status Bekerja', value: 'Staff IT - Yayasan BOPKRI Yogyakarta' },
+    ],
+    buttonText: 'Kunjungi Portofolio Lengkap',
+    buttonUrl: 'https://portofolio-ku-gold.vercel.app/',
+  },
   math_tutoring: {
     title: 'Les Matematika',
     icon: BookOpen,
