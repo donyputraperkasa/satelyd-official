@@ -11,15 +11,19 @@ import {
   Coins,
 } from 'lucide-react'
 import { PortfolioShowcase } from './PortfolioShowcase'
+import { jasa } from '../data'
 
-export function Modal({ isOpen, onClose, data }) {
+export function Modal({ activeKey, onClose, isOpen, data: customData }) {
+  const isModalOpen = isOpen !== undefined ? isOpen : Boolean(activeKey)
+  const data = customData || (activeKey ? jasa[activeKey] : null)
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         onClose()
       }
     }
-    if (isOpen) {
+    if (isModalOpen) {
       document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
     }
@@ -27,9 +31,9 @@ export function Modal({ isOpen, onClose, data }) {
       document.body.style.overflow = 'unset'
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isOpen, onClose])
+  }, [isModalOpen, onClose])
 
-  if (!isOpen || !data) return null
+  if (!isModalOpen || !data) return null
 
   const IconComponent = data.icon
 
