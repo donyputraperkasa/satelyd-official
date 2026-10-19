@@ -1,0 +1,748 @@
+/* ===================================================
+   SIDE-BY-SIDE INVOICE GENERATOR & LIVE PREVIEW
+   =================================================== */
+
+.simple-invoice-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-deep, #0B0F19);
+  color: var(--text-primary, #F8FAFC);
+  padding: 36px 24px 60px;
+  box-sizing: border-box;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  display: flex;
+  justify-content: center;
+}
+
+/* 2-Column Split Layout (Sebelah-Sebelahan) */
+.invoice-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 32px;
+  width: 100%;
+  max-width: 1360px;
+  align-items: start;
+}
+
+/* ===================================================
+   KOLOM KIRI: FORM EDITOR PANEL
+   =================================================== */
+.invoice-editor-panel {
+  width: 100%;
+}
+
+.editor-card {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.editor-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #94A3B8;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.btn-back-home:hover {
+  color: #FFFFFF;
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateX(-2px);
+}
+
+.editor-header {
+  margin-bottom: 20px;
+}
+
+.editor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.12);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.editor-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: 21px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 4px;
+}
+
+.editor-subtitle {
+  font-size: 13px;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.editor-subtitle strong {
+  color: #38BDF8;
+}
+
+.simple-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+.text-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.text-input:focus {
+  border-color: #38BDF8;
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+.text-input-payment {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #38BDF8;
+}
+
+/* Sesi Builder Box (Daftar Banyak Les Sekaligus) */
+.sessions-builder-box {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sessions-builder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-add-session {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.18s ease;
+}
+
+.btn-add-session:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+}
+
+.sessions-list-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session-item-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.session-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.session-index-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.btn-remove-session {
+  background: rgba(239, 68, 68, 0.1);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+}
+
+.btn-remove-session:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #EF4444;
+}
+
+.form-item-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-label-inner {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.text-input-sm {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* Action Buttons */
+.editor-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn-download-pdf {
+  flex: 1;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-download-pdf:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45);
+}
+
+.btn-reset {
+  background: rgba(255, 255, 255, 0.06);
+  color: #94A3B8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-reset:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* ===================================================
+   KOLOM KANAN: LIVE PREVIEW (SEBELAH FORM)
+   =================================================== */
+.invoice-preview-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 24px;
+}
+
+.preview-label {
+  font-size: 12.5px;
+  color: #94A3B8;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.invoice-official-sheet {
+  width: 100%;
+  background: #FFFFFF;
+  color: #0F172A;
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+}
+
+/* Header Kop */
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.brand-title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sheet-orbit-icon {
+  color: #0284C7;
+}
+
+.sheet-brand-name {
+  font-family: var(--font-display, sans-serif);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #0F172A;
+}
+
+.brand-accent-y {
+  color: #D97706;
+}
+
+.sheet-brand-tagline {
+  margin: 2px 0 0;
+  font-size: 11.5px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.sheet-meta-right {
+  text-align: right;
+}
+
+.sheet-doc-heading {
+  font-family: var(--font-display, sans-serif);
+  font-size: 19px;
+  font-weight: 800;
+  color: #0284C7;
+  letter-spacing: 0.8px;
+  margin: 0;
+}
+
+.sheet-doc-sub {
+  font-size: 11px;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sheet-divider {
+  height: 2px;
+  background: #E2E8F0;
+  margin: 18px 0 20px;
+}
+
+/* Section Nama Siswa */
+.sheet-student-section {
+  margin-bottom: 16px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: baseline;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.detail-label {
+  width: 120px;
+  flex-shrink: 0;
+  color: #475569;
+  font-weight: 600;
+}
+
+.detail-separator {
+  width: 14px;
+  flex-shrink: 0;
+  color: #64748B;
+  text-align: center;
+}
+
+.detail-value {
+  flex: 1;
+  color: #0F172A;
+}
+
+.detail-value.font-bold {
+  font-weight: 800;
+  font-size: 15.5px;
+  color: #0284C7;
+}
+
+/* Tabel Sesi Pertemuan */
+.sheet-sessions-table-wrap {
+  margin-bottom: 20px;
+}
+
+.table-caption {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.sheet-sessions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.sheet-sessions-table th {
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.sheet-sessions-table th.th-no {
+  width: 36px;
+  text-align: center;
+  border-top-left-radius: 6px;
+}
+
+.sheet-sessions-table th.th-tempat {
+  width: 60%;
+}
+
+.sheet-sessions-table th.th-materi {
+  width: 35%;
+}
+
+.sheet-sessions-table th:last-child {
+  border-top-right-radius: 6px;
+}
+
+.sheet-sessions-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  color: #1E293B;
+  vertical-align: middle;
+}
+
+.sheet-sessions-table tr:nth-child(even) td {
+  background: #F8FAFC;
+}
+
+.td-no {
+  text-align: center;
+  font-weight: 700;
+  color: #0284C7;
+}
+
+.td-tempat {
+  font-weight: 600;
+  color: #0F172A;
+  width: 60%;
+}
+
+.td-materi {
+  color: #334155;
+  width: 35%;
+}
+
+/* Payment Row */
+.sheet-payment-row {
+  display: flex;
+  align-items: baseline;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.detail-value.payment-amount {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #0284C7;
+}
+
+.empty-placeholder {
+  color: #94A3B8;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* Box Rekening Pembayaran */
+.sheet-payment-box {
+  background: #F8FAFC;
+  border: 1px dashed #CBD5E1;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.payment-box-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 3px;
+}
+
+.payment-bank-details {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #0284C7;
+}
+
+.payment-bank-details strong {
+  font-family: monospace;
+  font-size: 13.5px;
+}
+
+.payment-bank-details span {
+  color: #475569;
+  font-size: 12px;
+}
+
+.payment-note {
+  font-size: 11px;
+  color: #64748B;
+  margin: 5px 0 0;
+  font-style: italic;
+}
+
+/* Tanda Tangan */
+.sheet-signature-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+}
+
+.signature-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+}
+
+.sig-city {
+  font-size: 11.5px;
+  color: #64748B;
+}
+
+.sig-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.sig-space {
+  height: 38px;
+}
+
+.sig-name {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0F172A;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+.sig-desc {
+  font-size: 11px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+/* Footer Paper */
+.sheet-footer {
+  border-top: 1px solid #E2E8F0;
+  padding-top: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.sheet-footer p {
+  margin: 0;
+}
+
+/* ===================================================
+   RESPONSIVE (TABLET & MOBILE)
+   =================================================== */
+@media (max-width: 1080px) {
+  .invoice-split-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .invoice-preview-wrapper {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .simple-invoice-wrapper {
+    padding: 24px 14px 40px;
+  }
+
+  .editor-card {
+    padding: 18px 16px;
+  }
+
+  .invoice-official-sheet {
+    padding: 24px 18px;
+    border-radius: 12px;
+  }
+
+  .detail-label {
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .detail-value {
+    font-size: 13px;
+  }
+
+  .sheet-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sheet-meta-right {
+    text-align: left;
+  }
+}
+
+/* ===================================================
+   PRINT MEDIA RULES (CETAK A4 / SAVE AS PDF)
+   =================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.5cm;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html,
+  body,
+  #root,
+  .simple-invoice-wrapper {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    min-height: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .invoice-split-layout {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+  }
+
+  .invoice-preview-wrapper {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+  }
+
+  .invoice-official-sheet {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    border: none !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+  }
+}
