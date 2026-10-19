@@ -1,0 +1,43 @@
+export const webProjects = [
+  {
+    id: 'database_unit_sekolah',
+    title: 'Database Unit Sekolah',
+    category: 'Sistem Informasi & Manajemen',
+    url: 'https://tatakelolaku.vercel.app/',
+    embeddable: true,
+    description: 'Platform tata kelola dan manajemen dokumen/administrasi terpadu.',
+  },
+  {
+    id: 'layanan_aduan',
+    title: 'My Cepu',
+    category: 'Portal Pengaduan Publik',
+    url: 'https://hallo-bopkri-fe.vercel.app/',
+    embeddable: true,
+    description: 'Sistem pengaduan dan aspirasi terpadu BOPKRI berbasis web responsif.',
+  },
+  {
+    id: 'proyek_order',
+    title: 'The House of Mamink',
+    category: 'E-Commerce / Order Management',
+    url: 'https://the-house-of-mamink-fe-azure.vercel.app/',
+    embeddable: true,
+    description: 'Platform katalog & manajemen order produk The House of Mamink.',
+  },
+  {
+    id: 'nilai_kelas',
+    title: 'Nilai Kelas',
+    category: 'Aplikasi Akademik & Guru',
+    url: 'https://daftar-nilaiku.vercel.app/',
+    embeddable: true,
+    description: 'Aplikasi pengelolaan nilai dan rekapitulasi penilaian belajar siswa.',
+  },
+  {
+    id: 'undangan_nikah',
+    title: 'Undangan Nikah Digital',
+    category: 'Undangan Interaktif (Private)',
+    url: null,
+    embeddable: false,
+    isPrivate: true,
+    description: 'Undangan pernikahan online interaktif (detail dirahasiakan atas permintaan klien).',
+  },
+]

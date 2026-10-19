@@ -7,8 +7,10 @@ import {
   User,
   MapPin,
   GraduationCap,
-  Briefcase
+  Briefcase,
+  Coins,
 } from 'lucide-react'
+import { PortfolioShowcase } from './PortfolioShowcase'
 
 export function Modal({ isOpen, onClose, data }) {
   useEffect(() => {
@@ -34,10 +36,10 @@ export function Modal({ isOpen, onClose, data }) {
   const getProfileIcon = (label = '') => {
     const lower = label.toLowerCase()
     if (lower.includes('nama')) return <User size={15} className="profile-icon" />
-    if (lower.includes('tempat') || lower.includes('lahir')) return <MapPin size={15} className="profile-icon" />
+    if (lower.includes('tempat') || lower.includes('lahir') || lower.includes('lokasi')) return <MapPin size={15} className="profile-icon" />
     if (lower.includes('pendidikan')) return <GraduationCap size={15} className="profile-icon" />
     if (lower.includes('status') || lower.includes('bekerja')) return <Briefcase size={15} className="profile-icon" />
-    return null
+    if (lower.includes('tarif') || lower.includes('biaya') || lower.includes('harga')) return <Coins size={15} className="profile-icon" />
   }
 
   return (
@@ -86,6 +88,16 @@ export function Modal({ isOpen, onClose, data }) {
           )}
 
           <p className="modal-description">{data.description}</p>
+
+          {/* Komponen Showcase Portofolio Terpisah */}
+          {data.projects && <PortfolioShowcase projects={data.projects} />}
+
+          {data.note && (
+            <div className="modal-note-box">
+              <span className="modal-note-label">note :</span>{' '}
+              <span className="modal-note-text">{data.note}</span>
+            </div>
+          )}
 
           {data.features && (
             <ul className="modal-feature-list">
