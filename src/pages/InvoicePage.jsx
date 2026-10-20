@@ -9,6 +9,8 @@ export function InvoicePage() {
     { id: 1, tempatTanggal: '', materi: '' },
   ])
   const [payment, setPayment] = useState('')
+  const [isPaid, setIsPaid] = useState(false)
+  const [tanggalLunas, setTanggalLunas] = useState('')
 
   const handleAddSession = () => {
     setSessions((prev) => [
@@ -37,6 +39,8 @@ export function InvoicePage() {
       setNama('')
       setSessions([{ id: Date.now(), tempatTanggal: '', materi: '' }])
       setPayment('')
+      setIsPaid(false)
+      setTanggalLunas('')
     }
   }
 
@@ -53,6 +57,10 @@ export function InvoicePage() {
           onUpdateSession={handleUpdateSession}
           payment={payment}
           setPayment={setPayment}
+          isPaid={isPaid}
+          setIsPaid={setIsPaid}
+          tanggalLunas={tanggalLunas}
+          setTanggalLunas={setTanggalLunas}
           onPrint={handlePrint}
           onReset={handleReset}
         />
@@ -66,6 +74,8 @@ export function InvoicePage() {
             nama={nama}
             sessions={sessions}
             payment={payment}
+            isPaid={isPaid}
+            tanggalLunas={tanggalLunas}
           />
         </div>
       </div>

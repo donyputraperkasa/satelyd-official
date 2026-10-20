@@ -1,6 +1,12 @@
-import { Orbit } from 'lucide-react'
+import { Orbit, BadgeCheck } from 'lucide-react'
 
-export function InvoiceSheet({ nama, sessions, payment }) {
+export function InvoiceSheet({
+  nama,
+  sessions,
+  payment,
+  isPaid,
+  tanggalLunas = '',
+}) {
   return (
     <div className="invoice-official-sheet" id="invoice-sheet">
       {/* Header Kop Satelyd */}
@@ -65,11 +71,23 @@ export function InvoiceSheet({ nama, sessions, payment }) {
 
       {/* Payment Section */}
       <section className="sheet-payment-row">
-        <div className="detail-label">Total Payment</div>
-        <div className="detail-separator">:</div>
-        <div className="detail-value payment-amount">
-          {payment || <span className="empty-placeholder">(Belum diisi)</span>}
+        <div className="payment-left-group">
+          <div className="detail-label">Total Payment</div>
+          <div className="detail-separator">:</div>
+          <div className="detail-value payment-amount">
+            {payment || <span className="empty-placeholder">(Belum diisi)</span>}
+          </div>
         </div>
+
+        {isPaid && (
+          <div className="sheet-payment-badge badge-red">
+            <BadgeCheck size={16} />
+            <span className="badge-main-text">STATUS: LUNAS</span>
+            {tanggalLunas && (
+              <span className="badge-date-text">({tanggalLunas})</span>
+            )}
+          </div>
+        )}
       </section>
 
       {/* Rekening Pembayaran */}
@@ -84,7 +102,13 @@ export function InvoiceSheet({ nama, sessions, payment }) {
           <span>a.n Dony Putra Perkasa</span>
         </div>
         <p className="payment-note">
-          *Mohon konfirmasi dan kirimkan bukti transfer setelah pembayaran dilakukan.
+          {isPaid ? (
+            <span className="payment-note-paid">
+              ✓ Tagihan ini telah dibayar lunas. Terima kasih banyak atas kepercayaan Ayah / Bunda!
+            </span>
+          ) : (
+            '*Mohon konfirmasi dan kirimkan bukti transfer setelah pembayaran dilakukan.'
+          )}
         </p>
       </section>
 

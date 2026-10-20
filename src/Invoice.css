@@ -150,6 +150,111 @@
   color: #38BDF8;
 }
 
+/* Payment Status 2-Button Toggle Grid */
+.payment-status-toggle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.status-btn-choice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94A3B8;
+  transition: all 0.2s ease;
+}
+
+.status-btn-choice:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F8FAFC;
+}
+
+.status-btn-choice.active.unpaid {
+  background: rgba(148, 163, 184, 0.15);
+  border-color: #94A3B8;
+  color: #F8FAFC;
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3);
+}
+
+.status-btn-choice.active.paid {
+  background: rgba(22, 163, 74, 0.18);
+  border-color: #22C55E;
+  color: #4ADE80;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
+}
+
+/* Form Tanggal Pelunasan Di Bawah 2 Tombol */
+.payment-date-under-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 10px;
+  padding: 4px 6px 4px 12px;
+  margin-top: 8px;
+  animation: fadeIn 0.2s ease;
+}
+
+.payment-date-under-field:focus-within {
+  border-color: #38BDF8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.payment-date-under-field .text-input-date {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-family: inherit;
+  padding: 7px 0;
+}
+
+.payment-date-under-field .text-input-date::placeholder {
+  color: #64748B;
+  font-size: 12px;
+}
+
+.btn-quick-today {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38BDF8;
+  padding: 6px 11px;
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.btn-quick-today:hover {
+  background: rgba(56, 189, 248, 0.3);
+  color: #FFFFFF;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Sesi Builder Box (Daftar Banyak Les Sekaligus) */
 .sessions-builder-box {
   background: rgba(0, 0, 0, 0.25);
@@ -379,6 +484,9 @@
 
 .sheet-meta-right {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .sheet-doc-heading {
@@ -388,6 +496,69 @@
   color: #0284C7;
   letter-spacing: 0.8px;
   margin: 0;
+}
+
+/* Official Rubber Stamp Badge (Cap Besar Lunas) */
+.sheet-stamp-box {
+  margin-top: 8px;
+  display: inline-block;
+  user-select: none;
+  transform: rotate(-6deg);
+  transform-origin: center right;
+  transition: all 0.2s ease;
+}
+
+.stamp-double-border {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px 6px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Green (Emerald) Stamp */
+.sheet-stamp-box.stamp-green .stamp-double-border {
+  border: 3.5px double #15803D;
+  background: rgba(22, 163, 74, 0.05);
+  color: #15803D;
+}
+
+/* Red (Classic Crimson) Stamp */
+.sheet-stamp-box.stamp-red .stamp-double-border {
+  border: 3.5px double #BE123C;
+  background: rgba(225, 29, 72, 0.05);
+  color: #BE123C;
+}
+
+.stamp-icon-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.stamp-headline {
+  font-family: 'Arial Black', Impact, -apple-system, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  line-height: 1.05;
+  margin: 2px 0;
+  text-transform: uppercase;
+}
+
+.stamp-footer-text {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  opacity: 0.85;
 }
 
 .sheet-doc-sub {
@@ -518,7 +689,8 @@
 /* Payment Row */
 .sheet-payment-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-between;
   background: #F1F5F9;
   border: 1px solid #CBD5E1;
   border-radius: 8px;
@@ -526,10 +698,48 @@
   margin-bottom: 20px;
 }
 
+.payment-left-group {
+  display: flex;
+  align-items: baseline;
+}
+
 .detail-value.payment-amount {
   font-size: 16.5px;
   font-weight: 800;
   color: #0284C7;
+}
+
+.sheet-payment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  user-select: none;
+  background: rgba(225, 29, 72, 0.08);
+  border: 1.5px solid #E11D48;
+  color: #BE123C;
+}
+
+.sheet-payment-badge .badge-main-text {
+  font-weight: 800;
+}
+
+.sheet-payment-badge .badge-date-text {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9F1239;
+  letter-spacing: 0.2px;
+}
+
+.sheet-payment-badge.badge-red {
+  background: rgba(225, 29, 72, 0.08);
+  border: 1.5px solid #E11D48;
+  color: #BE123C;
 }
 
 .empty-placeholder {
@@ -577,6 +787,12 @@
   color: #64748B;
   margin: 5px 0 0;
   font-style: italic;
+}
+
+.payment-note-paid {
+  color: #15803D;
+  font-weight: 700;
+  font-style: normal;
 }
 
 /* Tanda Tangan */
@@ -688,11 +904,6 @@
    PRINT MEDIA RULES (CETAK A4 / SAVE AS PDF)
    =================================================== */
 @media print {
-  @page {
-    size: A4 portrait;
-    margin: 1.5cm;
-  }
-
   *,
   *::before,
   *::after {
@@ -744,5 +955,19 @@
     border: none !important;
     background: #FFFFFF !important;
     background-color: #FFFFFF !important;
+  }
+
+  .sheet-stamp-box,
+  .sheet-stamp-box *,
+  .sheet-payment-row,
+  .sheet-payment-badge,
+  .sheet-payment-box,
+  .sheet-sessions-table th {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .sheet-stamp-box {
+    transform: rotate(-6deg) !important;
   }
 }
