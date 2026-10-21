@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import { InvoicePage } from './pages/InvoicePage.jsx'
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/next"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,7 +13,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/invoice" element={<InvoicePage />} />
       </Routes>
-      <SpeedInsights />
+      <Analytics />
     </BrowserRouter>
   </StrictMode>,
 )
