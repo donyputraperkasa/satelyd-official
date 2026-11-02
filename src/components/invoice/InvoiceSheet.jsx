@@ -95,16 +95,16 @@ export function InvoiceSheet({
         <div className="payment-box-title">Metode Pembayaran (Transfer Bank):</div>
         <div className="payment-bank-details">
           <strong>BCA: 0374555339</strong>
-          <span>a.n Dony Putra Perkasa</span>
+          <span>a.n Albertus Magnus Dony</span>
         </div>
         <div className="payment-bank-details">
           <strong>Mandiri: 1370016948529</strong>
-          <span>a.n Dony Putra Perkasa</span>
+          <span>a.n Albertus Magnus Dony</span>
         </div>
         <p className="payment-note">
           {isPaid ? (
             <span className="payment-note-paid">
-              ✓ Tagihan ini telah dibayar lunas. Terima kasih banyak atas kepercayaan Ayah / Bunda!
+              ✓ Tagihan ini telah dibayar lunas. Terima kasih 😁
             </span>
           ) : (
             '*Mohon konfirmasi dan kirimkan bukti transfer setelah pembayaran dilakukan.'
@@ -114,7 +114,7 @@ export function InvoiceSheet({
 
       {/* Footer Paper */}
       <footer className="sheet-footer">
-        <p>© {new Date().getFullYear()} satelyd.id • WhatsApp: +62 822-3634-3404 • Yogyakarta, Indonesia</p>
+        <p>© {new Date().getFullYear()} satelyd.id • dony putra perkasa • yogyakarta, indonesia</p>
       </footer>
     </div>
   )

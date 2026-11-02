@@ -5,7 +5,7 @@ export function InvoiceFormActions({ onReset }) {
     <div className="editor-buttons">
       <button type="submit" className="btn-download-pdf">
         <Download size={17} />
-        <span>Unduh / Cetak Invoice (PDF)</span>
+        <span>Download Invoice (PDF)</span>
       </button>
       <button
         type="button"
