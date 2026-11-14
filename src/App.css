@@ -1433,3 +1433,131 @@
     font-size: 12.5px;
   }
 }
+
+/* ==========================================================================
+   RATING & TANYA DULU (LUAR MODAL)
+   Rating diperbesar sedikit + Tombol Tanya Dulu di sebelahnya (style pill modern)
+   ========================================================================== */
+
+.rating-action-wrapper {
+  width: 100%;
+  max-width: 880px;
+  margin: 14px auto 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.rating-action-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 1. Bagian Rating (Diperbesar Sedikit) */
+.rating-pill-enlarged {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  padding: 9px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  user-select: none;
+}
+
+.rating-pill-enlarged:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07);
+}
+
+.rating-star-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.star-gold-icon {
+  color: #F59E0B;
+}
+
+.rating-score-num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0F172A;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.rating-pill-sep {
+  color: #CBD5E1;
+  font-weight: 300;
+  font-size: 14px;
+  user-select: none;
+  margin: 0 2px;
+}
+
+.rating-pill-copy {
+  font-size: 13.5px;
+  color: #64748B;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 2. Button Tanya Dulu di Sebelahnya (Model seperti button tulis ulasan) */
+.btn-tanya-dulu-outside {
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+  border-radius: 9999px;
+  padding: 9px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: var(--font-body);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-tanya-dulu-outside:hover {
+  background: #0284C7;
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .rating-action-container {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .rating-pill-enlarged {
+    padding: 8px 16px;
+  }
+
+  .rating-score-num {
+    font-size: 15px;
+  }
+
+  .rating-pill-copy {
+    font-size: 12.5px;
+  }
+
+  .btn-tanya-dulu-outside {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}

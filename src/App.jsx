@@ -27,10 +27,12 @@ function App() {
           Selamat datang di satelyd.id — platform ini menyediakan pendampingan les privat matematika secara home visit maupun di caffee, serta layanan pembuatan website sederhana yang sampel nya dapat anda lihat di menu.
         </p>
         <CardsLayout onOpenModal={handleOpenModal} />
+        
+        {/* Rating Pill (Dibesarkan Sedikit) & Button Tanya Dulu di Sebelahnya */}
+        <RatingTagline />
       </main>
 
       <div className="bottom-section">
-        <RatingTagline />
         <Footer />
       </div>
 

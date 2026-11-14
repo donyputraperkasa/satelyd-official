@@ -123,7 +123,7 @@ export function Modal({ activeKey, onClose, isOpen, data: customData }) {
           >
             Tutup
           </button>
-          {data.buttonUrl ? (
+          {data.buttonUrl && (
             <a
               href={data.buttonUrl}
               target="_blank"
@@ -133,17 +133,7 @@ export function Modal({ activeKey, onClose, isOpen, data: customData }) {
               <ExternalLink size={17} />
               {data.buttonText || 'Lihat Portofolio Lengkap'}
             </a>
-          ) : data.whatsappUrl ? (
-            <a
-              href={data.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary-wa"
-            >
-              <MessageCircle size={17} />
-              {data.buttonText || 'Hubungi via WhatsApp'}
-            </a>
-          ) : null}
+          )}
         </div>
       </div>
     </div>
