@@ -54,7 +54,7 @@ export function Modal({ activeKey, onClose, isOpen, data: customData }) {
       aria-modal="true"
     >
       <div
-        className="modal-dialog"
+        className={`modal-dialog ${data.projects ? 'modal-dialog-wide' : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-header">

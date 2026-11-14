@@ -1,27 +1,30 @@
 :root {
-  /* Deep Cosmic Palette */
-  --bg-deep: #080C14;
-  --bg-space: #0B0F19;
-  --bg-space-secondary: #111827;
+  /* Clean Minimalist Light Palette (Selaras Portofolioku) */
+  --bg-deep: #F8FAFC;
+  --bg-space: #F1F5F9;
+  --bg-space-secondary: #FFFFFF;
 
-  /* Glass & Borders */
-  --glass-bg: rgba(22, 30, 46, 0.65);
-  --glass-border: rgba(148, 163, 184, 0.14);
-  --glass-hover-bg: rgba(30, 41, 59, 0.85);
-  --glass-hover-border: rgba(56, 189, 248, 0.45);
+  /* Surfaces & Borders */
+  --glass-bg: #FFFFFF;
+  --glass-border: #E2E8F0;
+  --glass-hover-bg: #FFFFFF;
+  --glass-hover-border: #BAE6FD;
 
   /* Text */
-  --text-main: #F8FAFC;
-  --text-heading: #FFFFFF;
-  --text-muted: #94A3B8;
-  --text-dim: #64748B;
+  --text-main: #334155;
+  --text-heading: #0F172A;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
 
-  /* Space Glow Accents */
+  /* Primary Blue Accents (Sesuai Portofolio) */
   --accent-orbit-gold: #F59E0B;
-  --accent-cyan: #38BDF8;
-  --accent-cyan-glow: rgba(56, 189, 248, 0.25);
-  --accent-purple-glow: rgba(168, 85, 247, 0.2);
-  --accent-gold-glow: rgba(245, 158, 11, 0.25);
+  --accent-cyan: #0284C7;
+  --accent-cyan-hover: #0369A1;
+  --accent-cyan-soft: #F0F9FF;
+  --accent-cyan-border: #BAE6FD;
+  --accent-cyan-glow: rgba(2, 132, 199, 0.15);
+  --accent-purple-glow: rgba(99, 102, 241, 0.08);
+  --accent-gold-glow: rgba(245, 158, 11, 0.15);
 
   /* Typography */
   --font-display: 'Outfit', system-ui, -apple-system, sans-serif;

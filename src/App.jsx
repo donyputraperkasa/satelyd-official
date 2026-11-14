@@ -24,7 +24,7 @@ function App() {
       <main className="main-content">
         <h1 className="page-title">welcome to satelyd.id</h1>
         <p className="page-subtitle">
-          Selamat datang di satelyd.id — platform media pembelajaran interaktif, bimbingan les matematika, dan pembuatan website.
+          Selamat datang di satelyd.id — platform ini menyediakan pendampingan les privat matematika secara home visit maupun di caffee, serta layanan pembuatan website sederhana yang sampel nya dapat anda lihat di menu.
         </p>
         <CardsLayout onOpenModal={handleOpenModal} />
       </main>
