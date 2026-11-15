@@ -8,7 +8,7 @@ export function CardsLayout({ onOpenModal }) {
       <div className="game-highlight-container">
         <Card
           title="game kelas"
-          href="https://satelyd-fe.vercel.app/"
+          href="https://satelyd-game-fe.vercel.app"
           isExternal={true}
           icon={Gamepad2}
           isHighlight={true}
