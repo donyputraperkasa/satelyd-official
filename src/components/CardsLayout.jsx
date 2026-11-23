@@ -4,10 +4,10 @@ import { Card } from './Card'
 export function CardsLayout({ onOpenModal }) {
   return (
     <section className="cards-layout" aria-label="Menu Utama">
-      {/* Div Sendiri: Highlight Game Kelas */}
+      {/* Div Sendiri: Highlight Game & Kuis */}
       <div className="game-highlight-container">
         <Card
-          title="game kelas"
+          title="game & kuis"
           href="https://satelyd-game-fe.vercel.app"
           isExternal={true}
           icon={Gamepad2}

@@ -61,7 +61,7 @@
   margin-top: 16px;
 }
 
-/* Layout: Highlight Game Kelas + Side Flex-Column */
+/* Layout: Highlight Game & Kuis + Side Flex-Column */
 .cards-layout {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -74,7 +74,7 @@
   align-items: stretch;
 }
 
-/* Div 1: Game Kelas Highlight Container (Clean Solid White Style) */
+/* Div 1: Game & Kuis Highlight Container (Clean Solid White Style) */
 .game-highlight-container {
   display: flex;
   width: 100%;
